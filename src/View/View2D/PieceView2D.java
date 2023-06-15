@@ -64,13 +64,14 @@ public class PieceView2D extends PieceView {
         for (int xx = 0; xx < width; xx++) {
             for (int yy = 0; yy < height; yy++) {
                 int[] pixels = raster.getPixel(xx, yy, (int[]) null);
-
-                //colorize the pixels only if the pixel is opaque and white
-                if (pixels[0] > 50 && pixels[1] > 50 && pixels[2] > 50) {
-                    pixels[0] = (int) (color.getRed()*255);
-                    pixels[1] = (int) (color.getGreen()*255);
-                    pixels[2] = (int) (color.getBlue()*255);
-                    raster.setPixel(xx, yy, pixels);
+                if (pixels.length >= 3) {
+                    //colorize the pixels only if the pixel is opaque and white
+                    if (pixels[0] > 50 && pixels[1] > 50 && pixels[2] > 50) {
+                        pixels[0] = (int) (color.getRed() * 255);
+                        pixels[1] = (int) (color.getGreen() * 255);
+                        pixels[2] = (int) (color.getBlue() * 255);
+                        raster.setPixel(xx, yy, pixels);
+                    }
                 }
 
             }
