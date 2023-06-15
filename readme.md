@@ -1,11 +1,18 @@
-## Running the Application
-Ensure that the 
-#### A customizable, 3D, multi-player chess game for anyone aged 3 to 103.
-Need to have a path variable for intellij that goes to the path of the javasdk - ChessGame/lib/javasdk.../
-This is in IntelliJ > Preferences for Max.
-Set path to the lib folder. This will be different for every user. I have it stored as part of the project.
+# Running the Application
+
+Check the images in docs/setup
+1. Verify that the javafx-sdk/lib folder is added as a java library to the project stucture. Make sure the ChessGame.imi has a reference to this library.
+2. Set a PATH_TO_FX variable in the intellij preferences.
+This will be different for every user. I have it stored the javafx libraries as part of the project.
 Mine is /User/jimcampbell/Coding.../ChessGame/lib/javafx-sdk-20.0.1/lib
 YOURS should have C:/ or /{wherever you downloaded this }/ChessGame/lib/javafx-sdk-20.0.1/lib
+
+Then in Run Configurations > edit configurations... add this as a vm option:
+--module-path ${PATH_TO_FX} --add-modules javafx.fxml,javafx.controls,javafx.graphics
+It is recommended to type that out and not copy paste.
+
+#### A customizable, 3D, multi-player chess game for anyone aged 3 to 103.
+
 ## Chess Rules
 In the game of chess, two players attempt to strategically capture each other's king. This can be done by a player who places the threat of capture on their opponent using one or more of their game pieces. If a king is in check, then the player must make a move that eliminates the threat of capture and cannot leave the king in check. Checkmate happens when a king is placed in check and there is no legal move to escape. Checkmate ends the game and the side whose delivered the checkmate wins the game.
 
